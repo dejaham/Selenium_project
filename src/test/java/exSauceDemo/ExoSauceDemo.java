@@ -35,5 +35,11 @@ public class ExoSauceDemo {
         Assertions.assertTrue(objProductPage.isListInOrder());
     }
 
+    @Test
+    public void t003_addArticleToCart() {
+        ProductPage objProductPage = new ProductPage(driver);
+        objProductPage.clickAddToCartBikeLight();
+    }
+
 
 }

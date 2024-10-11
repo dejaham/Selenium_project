@@ -16,6 +16,8 @@ public class ProductPage {
     private WebElement filterLoHi;
     @FindBy(xpath = "//div[@data-test='inventory-item-price']")
     private List<WebElement> listPrice;
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    private WebElement addToCartBikeLight;
 
     WebDriver driver;
     public ProductPage(WebDriver driver) {
@@ -29,6 +31,7 @@ public class ProductPage {
         return driver.getCurrentUrl();
     }
 
+    // filtre de prix croissant
     public void setFilterLoHi() {
         filterButton.click();
         filterLoHi.click();
@@ -54,5 +57,9 @@ public class ProductPage {
             previous = current;
         }
         return true;
+    }
+
+    public void clickAddToCartBikeLight() {
+       addToCartBikeLight.click();
     }
 }
