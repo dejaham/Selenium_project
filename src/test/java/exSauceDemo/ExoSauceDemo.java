@@ -32,6 +32,7 @@ public class ExoSauceDemo {
     public void t002_filterByPrice() {
         ProductPage objProductPage = new ProductPage(driver);
         objProductPage.setFilterLoHi();
+        Assertions.assertTrue(objProductPage.isListInOrder());
     }
 
 
