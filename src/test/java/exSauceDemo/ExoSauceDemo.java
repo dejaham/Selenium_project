@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObjectModel.HeaderPage;
 import pageObjectModel.LoginPage;
 import pageObjectModel.ProductPage;
 
@@ -25,20 +26,23 @@ public class ExoSauceDemo {
         LoginPage objLoginPage = new LoginPage(driver);
         ProductPage objProductPage = new ProductPage(driver);
         objLoginPage.logInAsUser();
-        Assertions.assertTrue(objProductPage.getProductPageUrl().contains("inventory.html"));
+        Assertions.assertTrue(objProductPage.getProductPageUrl().contains("inventory.html"), "Error:Article Page is not reached");
     }
 
     @Test
     public void t002_filterByPrice() {
         ProductPage objProductPage = new ProductPage(driver);
         objProductPage.setFilterLoHi();
-        Assertions.assertTrue(objProductPage.isListInOrder());
+        Assertions.assertTrue(objProductPage.isListInOrder(), "Error: List not ordered correctly");
     }
 
     @Test
     public void t003_addArticleToCart() {
         ProductPage objProductPage = new ProductPage(driver);
+        HeaderPage objHeaderPage = new HeaderPage(driver);
         objProductPage.clickAddToCartBikeLight();
+        Assertions.assertTrue(objHeaderPage.isArticleAdded(), "Error: Cart does not contains 1 element");
+
     }
 
 
