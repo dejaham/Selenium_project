@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObjectModel.CartPage;
 import pageObjectModel.HeaderPage;
 import pageObjectModel.LoginPage;
 import pageObjectModel.ProductPage;
@@ -42,6 +43,17 @@ public class ExoSauceDemo {
         HeaderPage objHeaderPage = new HeaderPage(driver);
         objProductPage.clickAddToCartBikeLight();
         Assertions.assertTrue(objHeaderPage.isArticleAdded(), "Error: Cart does not contains 1 element");
+
+    }
+
+    @Test
+    public void t004_clickOnCartAndCheckArticle() {
+        HeaderPage objHeaderPage = new HeaderPage(driver);
+        CartPage objCartPage = new CartPage(driver);
+        objHeaderPage.clickOnCart();
+        Assertions.assertTrue(objCartPage.getUrlWebPage().contains("cart.html"));
+        Assertions.assertEquals(objCartPage.getArticleInCart(), "Sauce Labs Bike Light", "Error: Article in cart is not the one expected");
+        objCartPage.clickCheckout();
 
     }
 

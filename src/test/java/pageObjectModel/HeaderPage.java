@@ -19,4 +19,8 @@ public class HeaderPage {
         if(shoppingCart.getText().equals("1")) return true;
         else return false;
     }
+
+    public void clickOnCart() {
+        shoppingCart.click();
+    }
 }
