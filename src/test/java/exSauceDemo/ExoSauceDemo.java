@@ -6,10 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjectModel.CartPage;
-import pageObjectModel.HeaderPage;
-import pageObjectModel.LoginPage;
-import pageObjectModel.ProductPage;
+import pageObjectModel.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class ExoSauceDemo {
@@ -55,6 +52,14 @@ public class ExoSauceDemo {
         Assertions.assertEquals(objCartPage.getArticleInCart(), "Sauce Labs Bike Light", "Error: Article in cart is not the one expected");
         objCartPage.clickCheckout();
 
+    }
+
+    @Test
+    public void t005_checkout() {
+        CheckoutPage objCheckoutPage = new CheckoutPage(driver);
+        Assertions.assertTrue(objCheckoutPage.getUrlCheckout().contains("checkout-step-one.html"), "Error: Wrong Url");
+        objCheckoutPage.fillInformationInCheckout();
+        objCheckoutPage.clickOnContinue();
     }
 
 
