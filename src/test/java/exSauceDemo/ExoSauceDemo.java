@@ -62,5 +62,14 @@ public class ExoSauceDemo {
         objCheckoutPage.clickOnContinue();
     }
 
+    @Test
+    public void t006_confirmationInformations() {
+        CheckoutPart2Page objCheckoutPage = new CheckoutPart2Page(driver);
+        Assertions.assertTrue(objCheckoutPage.getUrlWebPage().contains("checkout-step-two.html"), "Error: Wrong Url");
+        Assertions.assertTrue(objCheckoutPage.getTitleArticle().contains("Bike Light"));
+        Assertions.assertTrue(objCheckoutPage.getPriceArticle().contains("9.99"));
+        Assertions.assertTrue(objCheckoutPage.getTotalPriceArticle().contains("10.79"));
+
+    }
 
 }
