@@ -13,6 +13,8 @@ public class CheckoutPart2Page {
     private WebElement priceArticle;
     @FindBy(xpath = "//div[contains(@class, 'summary_total_label')]")
     private WebElement totalPriceArticle;
+    @FindBy(id = "finish")
+    private WebElement finishButton;
 
 
     WebDriver driver;
@@ -35,6 +37,10 @@ public class CheckoutPart2Page {
 
     public String getTotalPriceArticle() {
         return totalPriceArticle.getText();
+    }
+
+    public void clickOnFinishButton() {
+        finishButton.click();
     }
 
 

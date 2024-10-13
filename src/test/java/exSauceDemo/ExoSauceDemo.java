@@ -69,7 +69,21 @@ public class ExoSauceDemo {
         Assertions.assertTrue(objCheckoutPage.getTitleArticle().contains("Bike Light"));
         Assertions.assertTrue(objCheckoutPage.getPriceArticle().contains("9.99"));
         Assertions.assertTrue(objCheckoutPage.getTotalPriceArticle().contains("10.79"));
+        objCheckoutPage.clickOnFinishButton();
 
+    }
+
+    @Test
+    public void t007_confirmationPayment() {
+        ConfirmationPage objConfirmationPage = new ConfirmationPage(driver);
+        Assertions.assertTrue(objConfirmationPage.getWebUrlConfirmationPage().contains("checkout-complete.html"), "Error: Wrong Url");
+        Assertions.assertEquals("Thank you for your order!", objConfirmationPage.getTitleConfirmationPayment());
+
+    }
+
+    @AfterAll
+    public static void tearDown() {
+        driver.quit();
     }
 
 }
