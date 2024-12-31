@@ -120,9 +120,3 @@ Ce projet reflète mes capacités à :
 ## Auteur
 
 - **Johann de Jaham** - Passionné par le test logiciel et l'amélioration de la qualité des applications. [Mon profil LinkedIn](https://www.linkedin.com/in/dejaham/).
-
----
-
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
